@@ -36,6 +36,9 @@ env:
 jobs:
   ubuntu-24-openvino:
     runs-on: [self-hosted, Linux, Intel, OpenVINO]
+    container:
+      image: ubuntu:22.04
+      options: --device /dev/dri # Passes GPU devices into container for OpenVINO GPU tests
 
     env:
       # Sync versions in build-openvino.yml, build-self-hosted.yml, release.yml, build-cache.yml, .devops/openvino.Dockerfile
